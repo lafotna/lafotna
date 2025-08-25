@@ -2,19 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // تنسيق زر الطلب في كل مكان
     const handleOrderClick = (e) => {
         e.preventDefault();
-        const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
+        const phoneNumber = '966555555555'; // ضع رقم جوالك هنا
         let message = '';
         
         // التحقق من نوع الزر لبناء الرسالة الصحيحة
         const button = e.currentTarget;
-        const parentAnchor = button.closest('a');
+        const parentLink = button.closest('a'); // البحث عن الرابط الأب
         
         if (button.id === 'product-order-btn') {
             // هذا الزر في صفحة تفاصيل المنتج
             message = `أود طلب المنتج: ${window.location.href}`;
-        } else if (parentAnchor && parentAnchor.getAttribute('data-product-url')) {
+        } else if (parentLink && parentLink.getAttribute('href')) {
             // هذا الزر داخل بطاقة منتج في الصفحات الأخرى
-            const productUrl = parentAnchor.getAttribute('data-product-url');
+            const productUrl = parentLink.getAttribute('href');
             const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
             message = `أود طلب المنتج: ${fullUrl}`;
         }
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open(whatsappUrl, '_blank');
     };
 
-    // إضافة مستمعي الأحداث للأزرار
+    // إضافة مستمعي الأحداث لجميع أزرار الطلب
     document.querySelectorAll('.order-btn, .order-btn-grid, #product-order-btn').forEach(button => {
         button.addEventListener('click', handleOrderClick);
     });
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const leftBtn = slider.querySelector('.slider-btn.left');
         const rightBtn = slider.querySelector('.slider-btn.right');
         let scrollPosition = 0;
-        const cardWidth =220; // عرض البطاقة + الهامش
+        const cardWidth = 220; // عرض البطاقة + الهامش
 
         leftBtn.addEventListener('click', () => {
             scrollPosition += cardWidth;
