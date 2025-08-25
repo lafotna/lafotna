@@ -50,30 +50,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // إنشاء روابط واتساب للطلب (الكود الذي تم إصلاحه)
-    document.querySelectorAll('.order-btn, .order-btn-grid').forEach(button => {
+    // إنشاء روابط واتساب للطلب (حل نهائي)
+    document.querySelectorAll('.order-btn, .order-btn-grid, #product-order-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            const productUrl = e.target.getAttribute('data-product-url');
             const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
-            // بناء الرابط بالكامل باستخدام اسم المستودع
-            const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
-            const message = `أود طلب المنتج: ${fullUrl}`;
+            let message = '';
+            
+            // تحقق من نوع الزر لبناء الرسالة الصحيحة
+            if (e.target.id === 'product-order-btn') {
+                // هذا الزر في صفحة تفاصيل المنتج
+                message = `أود طلب المنتج: ${window.location.href}`;
+            } else {
+                // هذا الزر في الصفحة الرئيسية أو صفحات الفئات
+                const productUrl = e.target.getAttribute('data-product-url');
+                const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
+                message = `أود طلب المنتج: ${fullUrl}`;
+            }
+            
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
     });
-
-    // إصلاح رابط الطلب على صفحة تفاصيل المنتج
-    const productOrderBtn = document.getElementById('product-order-btn');
-    if (productOrderBtn) {
-        productOrderBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const currentUrl = window.location.href;
-            const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
-            const message = `أود طلب المنتج: ${currentUrl}`;
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        });
-    }
 });
