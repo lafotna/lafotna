@@ -1,0 +1,396 @@
+/* تنسيقات عامة */
+:root {
+    --primary-color: #2c3e50; /* كحلي */
+    --accent-color: #2c3e50; /* برتقالي */
+    --background-color: #fdf5e6; /* كريمي */
+    --box-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: #333;
+    direction: rtl; /* اتجاه الموقع من اليمين لليسار */
+}
+
+/* الهيدر (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: var(--box-shadow-light);
+}
+
+.header .logo img {
+    height: 50px;
+}
+
+.header .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.header .nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.header .search-bar input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.header .search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ... (باقي الكود كما هو) ... */
+
+/* قسم العرض الرئيسي (Hero Slider) */
+.hero-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 500px;
+    display: flex; /* إضافة Flexbox هنا لتحسين المحاذاة */
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 100%; /* ضمان أن السلايدر يملأ الحاوية */
+}
+
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* هذا هو التغيير الرئيسي: يضمن ظهور الصورة بالكامل */
+    flex-shrink: 0;
+    border: 1px solid #ddd;
+}
+
+/* لإضافة خلفية بيضاء وراء الصورة */
+.hero-slider-container {
+  background-color: #fff;
+}
+
+/* تظليل خفيف فوق الصورة */
+.hero-slider-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+}
+
+/* ... (باقي الكود كما هو) ... */
+
+.hero-btn.left {
+    right: 20px;
+    border-radius: 50%;
+}
+
+.hero-btn.right {
+    left: 20px;
+    border-radius: 50%;
+}
+
+/* الأقسام والفئات (Categories & Sections) */
+.main-content {
+    padding: 20px 50px;
+}
+
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.category-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.category-header .view-all {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s;
+}
+
+.category-header .view-all:hover {
+    transform: translateY(-3px);
+}
+
+/* سلايدر المنتجات (Product Slider) */
+.product-slider {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* ظل خفيف للسلايدر */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.product-card {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    margin: 0 10px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 50%;
+}
+
+.slider-btn.left {
+    right: 5px;
+}
+
+.slider-btn.right {
+    left: 5px;
+}
+
+/* زر الطلب داخل السلايدر */
+.order-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .order-btn {
+    opacity: 1;
+}
+
+/* تنسيقات شبكة المنتجات (Grid) */
+/* ... (باقي الكود كما هو) ... */
+
+/* تنسيقات شبكة المنتجات (Grid) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-light);
+    text-align: center;
+    transition: transform 0.3s;
+    text-decoration: none; /* لإزالة خطوط الروابط */
+    color: inherit;
+    display: block;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd; /* إضافة حدود خفيفة */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل خفيف للصورة */
+}
+
+.grid-item .order-btn-grid {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.grid-item .order-btn-grid:hover {
+    background-color: #e67e22;
+}
+
+/* ... (باقي الكود كما هو) ... */
+
+/* صفحة تفاصيل المنتج */
+.product-details-container {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.product-image-container {
+    flex: 1;
+    position: relative;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow-light);
+}
+
+.product-info {
+    flex: 1;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow-light);
+}
+
+.product-info h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-description {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* تنسيقات الجوال (Responsive) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .header .nav-links {
+        margin-top: 10px;
+    }
+    .header .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .header .search-bar input {
+        width: 100%;
+    }
+    .main-content {
+        padding: 15px;
+    }
+    .product-slider {
+        padding: 10px;
+    }
+    .slider-track {
+        transform: none !important; /* لإلغاء التحريك على الجوال */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+    }
+    .product-card {
+        scroll-snap-align: start;
+    }
+    .slider-btn {
+        display: none; /* إخفاء الأسهم على الجوال */
+    }
+    .product-details-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+.page-title {
+    text-align: right;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* ظل خفيف للعنوان */
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="شعار المتجر">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="#">خدمة العملاء</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="ابحث عن أي نوع طاولة...">
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="product-details-container">
+            <div class="product-image-container">
+                <img id="product-image" src="" alt="صورة المنتج">
+            </div>
+            <div class="product-info">
+                <h1 id="product-title">اسم المنتج</h1>
+                <p id="product-description" class="product-description">
+                    هنا يمكنك وضع وصف تفصيلي للمنتج. يمكن أن يشمل الأبعاد، المواد المستخدمة، الألوان المتاحة، وجميع التفاصيل التي قد تهم العميل.
+                </p>
+                <button id="product-order-btn" class="order-btn-grid">اطلب الآن </button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+    <script>
+        const products = {
+            'd1': {
+                title: 'طاولة طعام خشبية فاخرة',
+                image: 'images/d1.jpg',
+                description: 'طاولة طعام عصرية بتصميم أنيق ومصنوعة من خشب البلوط الصلب، مثالية لغرفة الطعام الحديثة. تتسع لـ 6 أشخاص وتتميز بمتانتها العالية.'
+            },
+            'd2': {
+                title: 'طاولة طعام زجاجية',
+                image: 'images/d2.jpg',
+                description: 'طاولة طعام بزجاج مقوى وقاعدة معدنية بتصميم فريد. تضيف لمسة من الفخامة إلى منزلك.'
+            },
+            'd3': {
+                title: 'طاولة طعام دائرية',
+                image: 'images/d3.jpg',
+                description: 'طاولة طعام دائرية بيضاء، تصميم أنيق ومناسب للمساحات الصغيرة.'
+            },
+            'c1': {
+                title: 'طاولة وسط عصرية',
+                image: 'images/c1.jpg',
+                description: 'طاولة وسط بتصميم حديث وبتفاصيل أنيقة، مناسبة لغرف المعيشة العصرية.'
+            },
+            'c2': {
+                title: 'طاولة قهوة خشبية',
+                image: 'images/c2.jpg',
+                description: 'طاولة قهوة كلاسيكية مصنوعة من الخشب الطبيعي، مثالية للاستخدام اليومي.'
+            },
+            'e1': {
+                title: 'طاولة مدخل كونسول',
+                image: 'images/e1.jpg',
+                description: 'طاولة مدخل أنيقة وعملية، مناسبة لوضع المفاتيح والأشياء الصغيرة.'
+            },
+            'e2': {
+                title: 'طاولة مدخل زجاجية',
+                image: 'images/e2.jpg',
+                description: 'طاولة مدخل بتصميم زجاجي، تضيف لمسة من الأناقة إلى مدخل منزلك.'
+            },
+            'o1': {
+                title: 'طاولة زاوية خشبية',
+                image: 'images/o1.jpg',
+                description: 'طاولة زاوية صغيرة وعملية، مثالية لوضع التحف أو النباتات المنزلية.'
+            },
+            'o2': {
+                title: 'طاولة زاوية رخامية',
+                image: 'images/o2.jpg',
+                description: 'طاولة زاوية فاخرة بسطح رخامي، تصميم يضفي طابعًا عصريًا على الغرفة.'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+            const product = products[productId];
+
+            if (product) {
+                document.getElementById('product-image').src = product.image;
+                document.getElementById('product-title').innerText = product.title;
+                document.getElementById('product-description').innerText = product.description;
+                document.getElementById('product-order-btn').setAttribute('data-product-url', window.location.href);
+            } else {
+                document.getElementById('product-title').innerText = 'المنتج غير موجود';
+                document.getElementById('product-description').innerText = 'نعتذر، لم يتم العثور على المنتج المطلوب.';
+            }
+        });
+    </script>
+</body>
+</html>
