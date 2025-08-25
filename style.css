@@ -413,10 +413,11 @@ body {
 
 .header .logo-text {
     color: var(--background-color); /* استخدام اللون الكريمي */
-    font-size: 1.5em; /* يمكنك تعديل هذا الحجم حسب رغبتك */
-    margin-right: 10px; /* لترك مسافة بين الشعار والنص */
+    font-size: 5em; /* يمكنك تعديل هذا الحجم حسب رغبتك */
+    margin-right: 50px; /* لترك مسافة بين الشعار والنص */
     font-weight: bold; /* لجعل الخط عريضاً */
 }
+
 
 
 
