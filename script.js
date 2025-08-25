@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // تنسيق زر الطلب في كل مكان
     const handleOrderClick = (e) => {
         e.preventDefault();
-        const phoneNumber = '966555555555'; // ضع رقم جوالك هنا
+        const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
         let message = '';
         
         // التحقق من نوع الزر لبناء الرسالة الصحيحة
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 
