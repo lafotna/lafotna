@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const leftBtn = slider.querySelector('.slider-btn.left');
         const rightBtn = slider.querySelector('.slider-btn.right');
         let scrollPosition = 0;
-        const cardWidth = -220; // عرض البطاقة + الهامش
+        const cardWidth =220; // عرض البطاقة + الهامش
 
         leftBtn.addEventListener('click', () => {
             scrollPosition += cardWidth;
@@ -79,3 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
