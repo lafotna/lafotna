@@ -405,18 +405,20 @@ body {
 }
 
 
-/* تنسيق الشعار والنص بجانبه */
 .header .logo {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* لترتيب العناصر عمودياً */
+    align-items: flex-start; /* لمحاذاة العناصر من جهة البداية (اليمين في حالتك) */
 }
 
 .header .logo-text {
     color: var(--background-color); /* استخدام اللون الكريمي */
-    font-size: 5em; /* يمكنك تعديل هذا الحجم حسب رغبتك */
-    margin-right: 50px; /* لترك مسافة بين الشعار والنص */
+    font-size: 10em; /* يمكنك تعديل هذا الحجم حسب رغبتك - قد تحتاج تصغيره قليلاً */
+    margin-top: 5px; /* لترك مسافة بين الشعار والنص */
     font-weight: bold; /* لجعل الخط عريضاً */
+    margin-right: 0; /* إزالة الهامش الأيمن */
 }
+
 
 
 
