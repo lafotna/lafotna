@@ -1,4 +1,3 @@
-/* تنسيقات عامة */
 :root {
     --primary-color: #2c3e50; /* كحلي */
     --accent-color: #2c3e50; /* برتقالي */
@@ -19,7 +18,7 @@ body {
     direction: rtl; /* اتجاه الموقع من اليمين لليسار */
 }
 
-/* الهيدر (Header) */
+/* -------------------- الهيدر (Header) -------------------- */
 .header {
     display: flex;
     justify-content: space-between;
@@ -62,80 +61,7 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* ... (باقي الكود كما هو) ... */
-
-/* قسم العرض الرئيسي (Hero Slider) */
-.hero-slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    height: 500px;
-    display: flex; /* إضافة Flexbox هنا لتحسين المحاذاة */
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-    width: 100%; /* ضمان أن السلايدر يملأ الحاوية */
-}
-
-.hero-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* هذا هو التغيير الرئيسي: يضمن ظهور الصورة بالكامل */
-    flex-shrink: 0;
-    border: 1px solid #ddd;
-}
-
-/* لإضافة خلفية بيضاء وراء الصورة */
-.hero-slider-container {
-  background-color: #fff;
-}
-
-/* تظليل خفيف فوق الصورة */
-.hero-slider-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    z-index: 2;
-}
-
-.hero-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 24px;
-}
-
-/* ... (باقي الكود كما هو) ... */
-
-.hero-btn.left {
-    right: 20px;
-    border-radius: 50%;
-}
-
-.hero-btn.right {
-    left: 20px;
-    border-radius: 50%;
-}
-
-/* الأقسام والفئات (Categories & Sections) */
+/* -------------------- الأقسام والفئات (Categories & Sections) -------------------- */
 .main-content {
     padding: 20px 50px;
 }
@@ -171,11 +97,78 @@ body {
     transform: translateY(-3px);
 }
 
-/* سلايدر المنتجات (Product Slider) */
+/* -------------------- تنسيقات السلايدر (الصفحة الرئيسية) -------------------- */
+.hero-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 100%;
+}
+
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+    border: 1px solid #ddd;
+}
+
+.hero-slider-container {
+    background-color: #fff;
+}
+
+.hero-slider-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+}
+
+.hero-btn.left {
+    right: 20px;
+    border-radius: 50%;
+}
+
+.hero-btn.right {
+    left: 20px;
+    border-radius: 50%;
+}
+
+/* -------------------- تنسيقات السلايدر الأفقي -------------------- */
 .product-slider {
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* ظل خفيف للسلايدر */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     padding: 20px;
 }
@@ -185,7 +178,8 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-.product-card {
+/* تنسيقات بطاقات المنتجات في السلايدر */
+.product-slider .product-card {
     flex-shrink: 0;
     width: 200px;
     height: 200px;
@@ -195,13 +189,16 @@ body {
     overflow: hidden;
     box-shadow: var(--box-shadow-light);
     transition: transform 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-.product-card:hover {
+.product-slider .product-card:hover {
     transform: translateY(-5px);
 }
 
-.product-card img {
+.product-slider .product-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -230,7 +227,7 @@ body {
 }
 
 /* زر الطلب داخل السلايدر */
-.order-btn {
+.product-slider .order-btn {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -246,48 +243,46 @@ body {
     transition: opacity 0.3s;
 }
 
-.product-card:hover .order-btn {
+.product-slider .product-card:hover .order-btn {
     opacity: 1;
 }
 
-/* تنسيقات شبكة المنتجات (Grid) */
-/* ... (باقي الكود كما هو) ... */
-
-/* تنسيقات شبكة المنتجات (Grid) */
+/* -------------------- تنسيقات شبكة المنتجات (لصفحات الفئات) -------------------- */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     padding: 20px;
 }
 
-.grid-item {
+/* تنسيقات بطاقات المنتجات في الشبكة (هذا هو الكود الذي تريده) */
+.product-grid .product-card {
     background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-light);
     text-align: center;
-    transition: transform 0.3s;
-    text-decoration: none; /* لإزالة خطوط الروابط */
+    text-decoration: none;
     color: inherit;
     display: block;
+    margin-bottom: 20px;
 }
 
-.grid-item:hover {
+.product-grid .product-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.grid-item img {
+.product-grid .product-card img {
+    border-radius: 6px;
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd; /* إضافة حدود خفيفة */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* ظل خفيف للصورة */
 }
 
-.grid-item .order-btn-grid {
+/* زر الطلب داخل الشبكة */
+.product-grid .order-btn-grid {
     background-color: var(--accent-color);
     color: #fff;
     border: none;
@@ -299,13 +294,11 @@ body {
     transition: background-color 0.3s;
 }
 
-.grid-item .order-btn-grid:hover {
+.product-grid .order-btn-grid:hover {
     background-color: #e67e22;
 }
 
-/* ... (باقي الكود كما هو) ... */
-
-/* صفحة تفاصيل المنتج */
+/* -------------------- صفحة تفاصيل المنتج -------------------- */
 .product-details-container {
     padding: 50px;
     display: flex;
@@ -345,41 +338,57 @@ body {
     margin-bottom: 25px;
 }
 
-/* تنسيقات الجوال (Responsive) */
+/* -------------------- تنسيقات الجوال (Responsive) -------------------- */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
         padding: 15px 20px;
     }
+
     .header .nav-links {
         margin-top: 10px;
     }
+
     .header .search-bar {
         width: 100%;
         margin-top: 10px;
     }
+
     .header .search-bar input {
         width: 100%;
     }
+
     .main-content {
         padding: 15px;
     }
+    
+    /* تنسيقات السلايدر الأفقي على الجوال */
     .product-slider {
         padding: 10px;
     }
-    .slider-track {
-        transform: none !important; /* لإلغاء التحريك على الجوال */
+
+    .product-slider .slider-track {
+        transform: none !important;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
         gap: 10px;
     }
-    .product-card {
+
+    .product-slider .product-card {
         scroll-snap-align: start;
     }
-    .slider-btn {
-        display: none; /* إخفاء الأسهم على الجوال */
+
+    .product-slider .slider-btn {
+        display: none;
     }
+
+    /* تنسيقات شبكة المنتجات على الجوال (هذا هو الكود الذي تريده) */
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
     .product-details-container {
         flex-direction: column;
         padding: 20px;
@@ -392,7 +401,7 @@ body {
     margin-bottom: 20px;
     font-weight: bold;
     color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* ظل خفيف للعنوان */
-
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
