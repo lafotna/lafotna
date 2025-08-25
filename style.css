@@ -344,17 +344,7 @@ body {
     line-height: 1.6;
     margin-bottom: 25px;
 }
-@media (max-width: 768px) {
-    .product-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .product-card {
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
-    }
-}
+
 /* تنسيقات الجوال (Responsive) */
 @media (max-width: 768px) {
     .header {
@@ -405,3 +395,4 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* ظل خفيف للعنوان */
 
 }
+
