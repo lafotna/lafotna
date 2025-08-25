@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const leftBtn = slider.querySelector('.slider-btn.left');
         const rightBtn = slider.querySelector('.slider-btn.right');
         let scrollPosition = 0;
-        const cardWidth = -220; // عرض البطاقة + الهامش
+        const cardWidth = 220; // عرض البطاقة + الهامش
 
         leftBtn.addEventListener('click', () => {
             scrollPosition += cardWidth;
@@ -50,16 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // إنشاء روابط واتساب للطلب
-    document.querySelectorAll('.order-btn, .order-btn-grid, #product-order-btn').forEach(button => {
+    // إنشاء روابط واتساب للطلب (الكود الذي تم إصلاحه)
+    document.querySelectorAll('.order-btn, .order-btn-grid').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const productUrl = e.target.getAttribute('data-product-url');
             const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
-            const message = `أود طلب المنتج: ${window.location.href}`;
+            // بناء الرابط بالكامل باستخدام اسم المستودع
+            const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
+            const message = `أود طلب المنتج: ${fullUrl}`;
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
     });
 
+    // إصلاح رابط الطلب على صفحة تفاصيل المنتج
+    const productOrderBtn = document.getElementById('product-order-btn');
+    if (productOrderBtn) {
+        productOrderBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentUrl = window.location.href;
+            const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
+            const message = `أود طلب المنتج: ${currentUrl}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
 });
