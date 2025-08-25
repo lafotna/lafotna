@@ -56,9 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const productUrl = e.target.getAttribute('data-product-url');
             const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
-            const message = `أود طلب المنتج: ${window.location.origin}/${productUrl}`;
+            const message = `أود طلب المنتج: ${window.location.href}`;
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
     });
+
 });
