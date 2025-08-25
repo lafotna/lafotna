@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // تنسيق زر الطلب في كل مكان
+    const handleOrderClick = (e) => {
+        e.preventDefault();
+        const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
+        let message = '';
+        
+        // التحقق من نوع الزر لبناء الرسالة الصحيحة
+        const button = e.currentTarget;
+        const parentAnchor = button.closest('a');
+        
+        if (button.id === 'product-order-btn') {
+            // هذا الزر في صفحة تفاصيل المنتج
+            message = `أود طلب المنتج: ${window.location.href}`;
+        } else if (parentAnchor && parentAnchor.getAttribute('data-product-url')) {
+            // هذا الزر داخل بطاقة منتج في الصفحات الأخرى
+            const productUrl = parentAnchor.getAttribute('data-product-url');
+            const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
+            message = `أود طلب المنتج: ${fullUrl}`;
+        }
+        
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
+    // إضافة مستمعي الأحداث للأزرار
+    document.querySelectorAll('.order-btn, .order-btn-grid, #product-order-btn').forEach(button => {
+        button.addEventListener('click', handleOrderClick);
+    });
+
     // تشغيل سلايدر العرض الرئيسي (Hero Slider)
     const heroSlider = document.querySelector('.hero-slider');
     if (heroSlider) {
@@ -30,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const leftBtn = slider.querySelector('.slider-btn.left');
         const rightBtn = slider.querySelector('.slider-btn.right');
         let scrollPosition = 0;
-        const cardWidth = 220; // عرض البطاقة + الهامش
+        const cardWidth = -220; // عرض البطاقة + الهامش
 
         leftBtn.addEventListener('click', () => {
             scrollPosition += cardWidth;
@@ -47,29 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollPosition = maxScroll;
             }
             sliderTrack.style.transform = `translateX(${scrollPosition}px)`;
-        });
-    });
-
-    // إنشاء روابط واتساب للطلب (حل نهائي)
-    document.querySelectorAll('.order-btn, .order-btn-grid, #product-order-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const phoneNumber = '966537633839'; // ضع رقم جوالك هنا
-            let message = '';
-            
-            // تحقق من نوع الزر لبناء الرسالة الصحيحة
-            if (e.target.id === 'product-order-btn') {
-                // هذا الزر في صفحة تفاصيل المنتج
-                message = `أود طلب المنتج: ${window.location.href}`;
-            } else {
-                // هذا الزر في الصفحة الرئيسية أو صفحات الفئات
-                const productUrl = e.target.getAttribute('data-product-url');
-                const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
-                message = `أود طلب المنتج: ${fullUrl}`;
-            }
-            
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
         });
     });
 });
