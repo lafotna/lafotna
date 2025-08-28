@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (parentLink && parentLink.getAttribute('href')) {
             // هذا الزر داخل بطاقة منتج في الصفحات الأخرى
             const productUrl = parentLink.getAttribute('href');
-            const fullUrl = `https://hadi2-cloud.github.io/lafotna/${productUrl}`;
+            const fullUrl = `https://lafotna.github.io/lafotna/${productUrl}`;
             message = `أود طلب المنتج: ${fullUrl}`;
         }
         
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 
