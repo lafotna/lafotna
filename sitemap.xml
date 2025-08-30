@@ -18,4 +18,17 @@
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
+   <url>
+      <loc>https://lafotna.github.io/lafotna/corner.html</loc>
+      <lastmod>2025-08-31</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://lafotna.github.io/lafotna/entrance.html</loc>
+      <lastmod>2025-08-31</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
    </urlset>
